@@ -1,5 +1,10 @@
+import environ
+env = environ.Env()
+environ.Env.read_env()
 
 from pathlib import Path
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -9,10 +14,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y1^la%-zb#v=fn02s$s3*e^5thmb!h@*3$0s=y=tcughydg_gy'
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DEBUG", cast=bool, default=True)
 
 ALLOWED_HOSTS = []
 
@@ -70,11 +75,11 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'm206314',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': env("DATEBASE_NAME"),
+        'USER': env("DATEBASE_USER"),
+        'PASSWORD': env("DATEBASE_PASSWORD"),
+        'HOST': env("DATEBASE_HOST"),
+        'PORT': env("DATEBASE_PORT"),
     }
 }
 
