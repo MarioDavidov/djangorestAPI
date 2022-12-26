@@ -5,6 +5,7 @@ from companies_api.models import Companies, Employee
 from companies_api.serialize import CompanySerializer, EmployeeSerializer
 
 
+
 class CompanyListApiView(rest_views.APIView):
     def get(self, request):
         company = Companies.objects.all()
