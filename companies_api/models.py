@@ -1,5 +1,4 @@
 from django.db import models
-# from companies_api.validators import salary
 
 
 class Companies(models.Model):

@@ -5,6 +5,9 @@ from companies_api.models import Companies, Employee
 from companies_api.serialize import CompanySerializer, EmployeeSerializer
 
 
+def Home_Page(request):
+    return render(request, 'home.html')
+
 
 class CompanyListApiView(rest_views.APIView):
     def get(self, request):
